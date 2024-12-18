@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert_values_into_links" author="Ivan Potemkin">
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/all"/>
+            <column name="short_url" value="http://localhost:8080/redirect/ga"/>
+            <column name="alias" value="ga"/>
+            <column name="created_at" valueComputed="CURRENT_DATE"/>
+            <column name="ttl" valueComputed="CURRENT_DATE + INTERVAL '5 DAYS'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/1"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g1"/>
+            <column name="alias" value="g1"/>
+            <column name="created_at" valueComputed="CURRENT_DATE"/>
+            <column name="ttl" valueComputed="CURRENT_DATE + INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/2"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g2"/>
+            <column name="alias" value="g2"/>
+            <column name="created_at" valueComputed="CURRENT_DATE"/>
+            <column name="ttl" valueComputed="CURRENT_DATE + INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/3"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g3"/>
+            <column name="alias" value="g3"/>
+            <column name="created_at" valueComputed="CURRENT_DATE"/>
+            <column name="ttl" valueComputed="CURRENT_DATE + INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/4"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g4"/>
+            <column name="alias" value="g4"/>
+            <column name="created_at" valueComputed="CURRENT_DATE - INTERVAL '2 DAY'"/>
+            <column name="ttl" valueComputed="CURRENT_DATE - INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/5"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g5"/>
+            <column name="alias" value="g5"/>
+            <column name="created_at" valueComputed="CURRENT_DATE - INTERVAL '2 DAY'"/>
+            <column name="ttl" valueComputed="CURRENT_DATE - INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/6"/>
+            <column name="short_url" value="http://localhost:8080/redirect/g6"/>
+            <column name="alias" value="g6"/>
+            <column name="created_at" valueComputed="CURRENT_DATE - INTERVAL '2 DAY'"/>
+            <column name="ttl" valueComputed="CURRENT_DATE - INTERVAL '1 DAY'"/>
+        </insert>
+
+        <insert tableName="links">
+            <column name="original_url" value="http://localhost:8080/link/get/all/alias?alias=g"/>
+            <column name="short_url" value="http://localhost:8080/redirect/gg"/>
+            <column name="alias" value="gg"/>
+            <column name="created_at" valueComputed="CURRENT_DATE"/>
+            <column name="ttl" valueComputed="CURRENT_DATE + INTERVAL '10 DAYS'"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create_table_links" author="Ivan Potemkin">
+
+        <createTable tableName="links">
+
+            <column name="id" type="BIGSERIAL">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="original_url" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="short_url" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="alias" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="created_at" type="DATE" defaultValueComputed="CURRENT_DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="ttl" type="DATE"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

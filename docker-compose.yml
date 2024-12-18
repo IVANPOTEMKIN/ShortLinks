@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=links
+      - POSTGRES_USER=links
+      - POSTGRES_PASSWORD=links
+    ports:
+      - '5434:5432'
+
+  app:
+    container_name: links
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/links
+      - SPRING_DATASOURCE_USERNAME=links
+      - SPRING_DATASOURCE_PASSWORD=links
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
